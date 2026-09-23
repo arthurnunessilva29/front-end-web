@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio da internet</title>
+    <title>Áudio em HTML</title>
 </head>
-<body>
-    <h1>Audio em HTML</h1>
 
-    <audio controls preload="metadata">
-        <source src="musica.mp3" type="audio/mpeg">
-        <source src="musica.ogg" type="audio/ogg">
-        <source src="musica.wav" type="audio/wav">
-        <p>Seu navegador não suporta o elemento audio</p>
+<body>
+    <h1>Áudio em HTML</h1>
+    <p>Clique no botão de reprodução para ouvir o áudio: </p>
+
+    <audio id="meuAudio" loop>
+        <source src="arunangshubanerjee-live-football-match-stadium-crowd-cheering-563439.mp3" type="audio/mpeg">
+        Seu navegador não suporta a reprodução de áudio.
     </audio>
+
+    <script>
+        const audio = document.getElementById("meuAudio");
+        audio.volume = 0.5;
+    </script>
 </body>
 </html>
