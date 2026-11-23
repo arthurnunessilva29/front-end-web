@@ -1,0 +1,241 @@
+/* Faz com que largura e altura incluam padding e borda. */
+* {
+    box-sizing: border-box;
+}
+
+/* Estilos básicos: fundo claro, texto escuro e fonte legível. */
+body {
+    margin: 0;
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+/* Organiza a página em cabeçalho, menu, conteúdo e rodapé usando Grid. */
+.layout-pagina {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* Cabeçalho: o degradê é uma das propriedades pesquisadas. */
+.cabecalho {
+    grid-area: header;
+    background: linear-gradient(120deg, #1D4ED8, #0F172A);
+    color: #FFFFFF;
+    padding: 25px;
+    text-align: center;
+}
+
+.cabecalho h1 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+}
+
+.cabecalho p {
+    margin: 0;
+}
+
+/* Menu lateral com links empilhados. */
+.barra-lateral {
+    grid-area: sidebar;
+    background-color: #0F172A;
+    padding: 20px;
+}
+
+.barra-lateral h2 {
+    color: #FFFFFF;
+}
+
+.barra-lateral ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.barra-lateral li {
+    margin-bottom: 10px;
+}
+
+.barra-lateral a {
+    display: block;
+    background-color: #1D4ED8;
+    color: #FFFFFF;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* :hover muda o link quando o cursor passa por cima. */
+.barra-lateral a:hover {
+    background-color: #0F172A;
+    transform: translateX(3px);
+}
+
+/* Conteúdo principal e apresentação do tema. */
+.grid-principal {
+    grid-area: main;
+    padding: 28px;
+    min-width: 0;
+}
+
+.grid-principal h2 {
+    margin-top: 0;
+    color: #0F172A;
+}
+
+.apresentacao,
+.participacao {
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-bottom: 28px;
+    border: 1px solid #1D4ED8;
+    border-radius: 12px;
+}
+
+/* Os cards ficam lado a lado quando há espaço e quebram em telas estreitas. */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #FFFFFF;
+    padding: 18px;
+    border: 1px solid #1D4ED8;
+    border-radius: 12px;
+    /* box-shadow cria uma sombra suave ao redor dos cards. */
+    box-shadow: 0 3px 8px #0F172A20;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #0F172A;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+.card a {
+    display: inline-block;
+    background-color: #1D4ED8;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.card a:hover {
+    background-color: #0F172A;
+}
+
+/* Formulário: labels e campos aparecem um abaixo do outro. */
+.formulario {
+    display: grid;
+    gap: 8px;
+    max-width: 480px;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #1D4ED8;
+    border-radius: 6px;
+    font: inherit;
+    background-color: #FFFFFF;
+    color: #0F172A;
+}
+
+/* :focus destaca o campo selecionado pelo teclado ou pelo mouse. */
+.formulario input:focus,
+.formulario select:focus,
+.formulario button:focus,
+.barra-lateral a:focus,
+.card a:focus {
+    outline: 3px solid #1D4ED8;
+    outline-offset: 2px;
+}
+
+.formulario button {
+    margin-top: 8px;
+    padding: 11px 14px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #1D4ED8;
+    color: #FFFFFF;
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.formulario button:hover {
+    background-color: #0F172A;
+}
+
+.aviso-formulario {
+    font-size: 0.9rem;
+}
+
+/* Rodapé da página. */
+.rodape {
+    grid-area: footer;
+    background-color: #0F172A;
+    color: #FFFFFF;
+    padding: 16px;
+    text-align: center;
+}
+
+.rodape p {
+    margin: 4px;
+}
+
+/* Em telas menores, o menu passa para cima do conteúdo. */
+@media (max-width: 700px) {
+    .layout-pagina {
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+    .barra-lateral {
+        padding: 14px;
+    }
+
+    .barra-lateral ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .barra-lateral li {
+        margin: 0;
+        flex: 1 1 120px;
+    }
+
+    .grid-principal {
+        padding: 18px;
+    }
+
+    .cabecalho h1 {
+        font-size: 1.7rem;
+    }
+}
