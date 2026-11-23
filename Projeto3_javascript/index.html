@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Front-End</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <div class="layout-pagina">
+        <header class="cabecalho" id="inicio">
+            <h1>Portal Front-End</h1>
+            <p>Um espaço para conhecer os conteúdos estudados no curso.</p>
+        </header>
+
+        <aside class="barra-lateral">
+            <h2>Conteúdos</h2>
+            <nav aria-label="Menu principal">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#conteudos">Conteúdos</a></li>
+                    <li><a href="#participar">Participar</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="grid-principal">
+            <section class="apresentacao" id="sobre">
+                <h2>Aprenda sobre Front-End</h2>
+                <p>Front-End é a parte de um site com a qual as pessoas interagem. Nesta página, você encontrará uma introdução a HTML, CSS e formulários, além de um espaço demonstrativo para deixar seu interesse registrado.</p>
+            </section>
+
+            <section id="conteudos" aria-labelledby="titulo-conteudos">
+                <h2 id="titulo-conteudos">Conteúdos da disciplina</h2>
+                <div class="grid-cards">
+                    <article class="card">
+                        <h3>HTML</h3>
+                        <p>O HTML organiza a estrutura e o conteúdo das páginas web, como títulos, parágrafos, imagens e links.</p>
+                        <a href="#participar">Tenho interesse</a>
+                    </article>
+
+                    <article class="card">
+                        <h3>CSS</h3>
+                        <p>O CSS personaliza a aparência da página com cores, fontes, bordas, espaçamentos e layouts.</p>
+                        <a href="#participar">Tenho interesse</a>
+                    </article>
+
+                    <article class="card">
+                        <h3>Formulários</h3>
+                        <p>Os formulários permitem reunir informações digitadas pelas pessoas, como nome e área de interesse.</p>
+                        <a href="#participar">Tenho interesse</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="participacao" id="participar">
+                <h2>Participe</h2>
+                <p>Preencha o formulário demonstrativo para indicar qual conteúdo você gostaria de estudar mais.</p>
+                <form class="formulario" action="#" method="get">
+                    <label for="nome">Seu nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                    <label for="interesse">Conteúdo de interesse</label>
+                    <select id="interesse" name="interesse" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="formularios">Formulários</option>
+                    </select>
+
+                    <button type="submit">Enviar resposta</button>
+                </form>
+                <p class="aviso-formulario">Este formulário é apenas demonstrativo.</p>
+            </section>
+        </main>
+
+        <footer class="rodape">
+            <p>Desenvolvimento Front-End para Web — 2026</p>
+            <p>Projeto acadêmico criado por Arthur Nunes.</p>
+        </footer>
+    </div>
+</body>
+</html>
